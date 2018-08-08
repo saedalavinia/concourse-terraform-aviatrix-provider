@@ -1,0 +1,47 @@
+---
+jobs:
+- name: build-terraform-provider-aviatrix
+  serial: true
+  plan:
+  - get: git-repository
+    trigger: true
+  - task: build-terraform-provider-aviatrix
+    file: git-repository/tasks/build.yml
+    params:
+        NAME: "Test"
+
+
+
+# # ========================= Resource Types =========================
+# resource_types:
+# - name: terraform
+#   type: docker-image
+#   source:
+#     repository: ljfranklin/terraform-resource
+#     tag: latest
+
+
+# # ============================ Resources ============================
+
+resources:
+- name: git-repository
+  type: git
+  source:
+    uri: ((git_repository))
+    branch: master
+
+# - name: terraform
+#   type: terraform
+#   source:
+#     storage:
+#       bucket: ((ci_bucket))
+#       region_name: ((ci_bucket_region))
+#       bucket_path: terraform/((environment))
+#       access_key_id: ((aws_access_key_id))
+#       secret_access_key: ((aws_secret_access_key))
+#     vars:
+#       environment_tag: ((environment))
+#     env:
+#       AWS_ACCESS_KEY_ID: ((aws_access_key_id))
+#       AWS_SECRET_ACCESS_KEY: ((aws_secret_access_key))
+#       AWS_DEFAULT_REGION: ((region))
