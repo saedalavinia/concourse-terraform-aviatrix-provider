@@ -1,6 +1,8 @@
 inputs:
 - name: git-repository
 
+outputs:
+- name: output
 platform: linux
 
 image_resource:

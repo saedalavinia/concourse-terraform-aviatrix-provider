@@ -11,5 +11,6 @@ git clone https://github.com/AviatrixSystems/terraform-provider-aviatrix.git
 cd $GOPATH/src/github.com/terraform-providers/terraform-provider-aviatrix
 make build
 
-mkdir -p $THIS_DIR/output/linux-amd64
-sleep 100000000
+mkdir -p output/linux-amd64
+cp $GOPATH/bin/terraform-provider-aviatrix output/linux-amd64/
+

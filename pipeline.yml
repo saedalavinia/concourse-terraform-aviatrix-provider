@@ -7,8 +7,6 @@ jobs:
     trigger: true
   - task: build-terraform-provider-aviatrix
     file: git-repository/tasks/build.yml
-    params:
-        NAME: "Test"
 
 
 
