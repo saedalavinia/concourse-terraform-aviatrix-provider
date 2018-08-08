@@ -12,3 +12,4 @@ cd $GOPATH/src/github.com/terraform-providers/terraform-provider-aviatrix
 make build
 
 mkdir -p $THIS_DIR/output/linux-amd64
+sleep 100000000
