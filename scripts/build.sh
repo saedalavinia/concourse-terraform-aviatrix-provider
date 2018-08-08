@@ -6,15 +6,12 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 go version
 mkdir -p $GOPATH/src/github.com/terraform-providers
-cd $GOPATH/src/github.com/terraform-providers
+pushd $GOPATH/src/github.com/terraform-providers
 git clone https://github.com/AviatrixSystems/terraform-provider-aviatrix.git
-cd $GOPATH/src/github.com/terraform-providers/terraform-provider-aviatrix
+pushd $GOPATH/src/github.com/terraform-providers/terraform-provider-aviatrix
 make build
 
-mkdir output/
-ls -la 
-ls -la output/
-mkdir output/linux-amd64
-ls -la output/
+popd
+popd
+mkdir -p output/linux-amd64
 cp $GOPATH/bin/terraform-provider-aviatrix output/linux-amd64/
-ls -la output/linux-amd64
